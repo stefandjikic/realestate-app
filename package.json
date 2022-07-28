@@ -3,15 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": " PORT=2904 next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.2.4",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "axios": "^0.27.2",
+    "framer-motion": "^6",
+    "millify": "^5.0.0",
     "next": "12.2.3",
+    "nprogress": "^0.2.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-horizontal-scrolling-menu": "^3.1.1",
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
     "@types/node": "18.6.1",
