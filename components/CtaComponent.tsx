@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Grid, Box, Heading, Text, Button, Flex } from "@chakra-ui/react";
 import Link from "next/link";
+import { Grid, Box, Heading, Text, Button, Flex } from "@chakra-ui/react";
 
 interface IProps {
   type: string;
