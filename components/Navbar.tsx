@@ -7,32 +7,35 @@ import {
   IconButton,
   MenuList,
   MenuItem,
+  Container,
 } from "@chakra-ui/react";
 import { FcMenu } from "react-icons/fc";
 import { NAV_LINKS } from "../utils/links";
+import { CONTAINER_WIDTH } from "../utils/constants";
 
 const Navbar = () => {
   return (
     <>
       {/* Desktop Nav */}
-      <Flex
-        display={{ base: "none", md: "flex" }}
-        justifyContent="space-between"
-        py="6"
-        borderBottom="1px"
-        borderColor="gray.200"
-      >
-        <Box>
-          <Link href="/">Real Estate App</Link>
-        </Box>
-        <Flex>
-          {NAV_LINKS?.map((navLink) => (
-            <Box key={navLink.route} ml="4">
-              <Link href={navLink.route}>{navLink.name}</Link>
+      <Box py="6" borderBottom="1px" borderColor="gray.100">
+        <Container maxW={CONTAINER_WIDTH}>
+          <Flex
+            display={{ base: "none", md: "flex" }}
+            justifyContent="space-between"
+          >
+            <Box>
+              <Link href="/">Real Estate App</Link>
             </Box>
-          ))}
-        </Flex>
-      </Flex>
+            <Flex>
+              {NAV_LINKS?.map((navLink) => (
+                <Box key={navLink.route} ml="4">
+                  <Link href={navLink.route}>{navLink.name}</Link>
+                </Box>
+              ))}
+            </Flex>
+          </Flex>
+        </Container>
+      </Box>
       {/* Mobile Nav */}
       <Flex
         display={{ base: "flex", md: "none" }}

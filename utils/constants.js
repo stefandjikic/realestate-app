@@ -1,3 +1,5 @@
+export const CONTAINER_WIDTH = '1400px';
+
 export const PROPERTIES = [
   {
     id: 1753434,
