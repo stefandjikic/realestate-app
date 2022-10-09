@@ -379,3 +379,53 @@ export const PROPERTIES = [
     objectID: "1753434",
   },
 ];
+
+export const PROPERTY_DETAILS = {
+  id: 2204478,
+  title: "Build your 5 Star Resort on the Beach, Palm Jumeirah",
+  purpose: "for-sale",
+  price: 530000000,
+  type: "property",
+  rentFrequency: null,
+  rooms: 0,
+  baths: 0,
+  area: 56670.854400000004,
+  agency: {
+    id: 7053698,
+    logo: {
+      id: 27681814,
+      url: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/27681814/9c7b944fa4344803a4cc318dd6160c78",
+    },
+  },
+  isVerified: false,
+  description:
+    "RARE Opportunity to Build a resort on the Palm Jumeirah with beach access and panoramic sea view You can build 7 floors resort mixed between hotel or hotel apartments What the benefits what is the construction cost what is the approximate income for the hotel what is the value of the hotel after completion If you are an investor or International investment company, contact us for full presentation and ready business plan for this opportunity *Note: The pictures is sample of what you can build on this plot at the same area location Ayham Jbara Manzel Kareem",
+  furnishingStatus: null,
+  amenities: [],
+  photos: [
+    {
+      id: 110798997,
+      externalID: "103391151",
+      title: "Palm Jumeirah",
+      url: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/110798997/d9446cee36ba4f839c8fedd0e0b52208",
+      orderIndex: 0,
+      nimaScore: 5.999995438928998,
+    },
+    {
+      id: 110799000,
+      externalID: "103391152",
+      title: "Build your 5 Star Resort on the Beach",
+      url: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/110799000/13c5ddeb3710480ab040480678519575",
+      orderIndex: 1,
+      nimaScore: 5.969393613838337,
+    },
+    {
+      id: 110799002,
+      externalID: "103391153",
+      title: "Palm Jumeirah",
+      url: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/110799002/8ab6592e4ea7409fb05af756b7b80a03",
+      orderIndex: 2,
+      nimaScore: 5.995129640790738,
+    },
+  ],
+};

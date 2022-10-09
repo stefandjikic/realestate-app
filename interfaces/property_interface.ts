@@ -38,3 +38,33 @@ export interface IProperty {
   agency: IAgencyForProperty;
   isVerified: boolean;
 }
+
+interface IPropertyPhoto {
+  id: number
+  externalID: string
+  url: string
+  orderIndex: number
+  nimaScore: number
+}
+
+interface IPropertyAmenity {
+  text: string
+}
+
+export interface IPropertyDetails {
+  id: number
+  price: number
+  rentFrequency: string | null
+  rooms: number
+  title: string
+  baths: number
+  area: number 
+  agency: IAgencyForProperty
+  isVerified: boolean
+  description: string
+  type: string
+  purpose: string
+  furnishingStatus: null | unknown
+  amenities: Array<IPropertyAmenity>
+  photos: Array<IPropertyPhoto>
+}

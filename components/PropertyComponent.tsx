@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Flex, Box, Heading, Text, Avatar } from "@chakra-ui/react";
+import { Flex, Box, Text, Avatar } from "@chakra-ui/react";
 import millify from "millify";
 import { FaBed, FaBath } from "react-icons/fa";
 import { GoVerified } from "react-icons/go";
