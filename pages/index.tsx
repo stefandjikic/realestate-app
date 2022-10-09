@@ -55,3 +55,16 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+//TODO: connect with api
+// export async function getStaticProps() {
+//   const propertiesForSale = fetchAPI(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=3`);
+//   const propertiesForRent = fetchAPI(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=3`);
+
+//   return {
+//     props: {
+//       propertiesForSale: propertiesForSale?.hits,
+//       propertiesForRent: propertiesForRent?.hits,
+//     }
+//   }
+// }

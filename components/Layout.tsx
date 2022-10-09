@@ -14,18 +14,15 @@ const Layout = ({ children }: IProps) => (
     <Head>
       <title>Real Estate App</title>
     </Head>
-      <Box as="header">
-        <Navbar />
-      </Box>
-      <Box as="main">
-        <Container maxW={CONTAINER_WIDTH}>
-        {children}
-
-        </Container>
-        </Box>
-      <Box as="footer">
-        <Footer />
-      </Box>
+    <Box as="header">
+      <Navbar />
+    </Box>
+    <Box as="main">
+      <Container maxW={CONTAINER_WIDTH}>{children}</Container>
+    </Box>
+    <Box as="footer">
+      <Footer />
+    </Box>
   </>
 );
 
