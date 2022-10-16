@@ -392,14 +392,22 @@ export const PROPERTY_DETAILS = {
   area: 56670.854400000004,
   agency: {
     id: 7053698,
+    name:"Manzel Kareem Real Estate",
     logo: {
       id: 27681814,
       url: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/27681814/9c7b944fa4344803a4cc318dd6160c78",
     },
   },
+  contactName:"Ayham Jbara",
+  phoneNumber: {
+    mobile:"+971585768009",
+    phone:"+97143433992",
+    whatsapp:"971585768009",
+    proxyMobile:"+971522794094",
+  },
   isVerified: false,
   description:
-    "RARE Opportunity to Build a resort on the Palm Jumeirah with beach access and panoramic sea view You can build 7 floors resort mixed between hotel or hotel apartments What the benefits what is the construction cost what is the approximate income for the hotel what is the value of the hotel after completion If you are an investor or International investment company, contact us for full presentation and ready business plan for this opportunity *Note: The pictures is sample of what you can build on this plot at the same area location Ayham Jbara Manzel Kareem",
+    "RARE Opportunity to Build a resort on the Palm Jumeirah with beach access and panoramic sea view. You can build 7 floors resort mixed between hotel or hotel apartments. What the benefits what is the construction cost what is the approximate income for the hotel what is the value of the hotel after completion. If you are an investor or International investment company, contact us for full presentation and ready business plan for this opportunity. *Note: The pictures is sample of what you can build on this plot at the same area location Ayham Jbara Manzel Kareem",
   furnishingStatus: null,
   amenities: [],
   photos: [

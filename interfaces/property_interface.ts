@@ -40,31 +40,40 @@ export interface IProperty {
 }
 
 interface IPropertyPhoto {
-  id: number
-  externalID: string
-  url: string
-  orderIndex: number
-  nimaScore: number
+  id: number;
+  externalID: string;
+  url: string;
+  orderIndex: number;
+  nimaScore: number;
 }
 
 interface IPropertyAmenity {
-  text: string
+  text: string;
+}
+
+interface IPropertyPhoneNumber {
+  mobile: string;
+  phone: string;
+  whatsapp: string;
+  proxyMobile: string;
 }
 
 export interface IPropertyDetails {
-  id: number
-  price: number
-  rentFrequency: string | null
-  rooms: number
-  title: string
-  baths: number
-  area: number 
-  agency: IAgencyForProperty
-  isVerified: boolean
-  description: string
-  type: string
-  purpose: string
-  furnishingStatus: null | unknown
-  amenities: Array<IPropertyAmenity>
-  photos: Array<IPropertyPhoto>
+  id: number;
+  price: number;
+  rentFrequency: string | null;
+  rooms: number;
+  title: string;
+  baths: number;
+  area: number;
+  agency: IAgencyForProperty;
+  contactName: string;
+  phoneNumber: IPropertyPhoneNumber;
+  isVerified: boolean;
+  description: string;
+  type: string;
+  purpose: string;
+  furnishingStatus: null | unknown;
+  amenities: Array<IPropertyAmenity>;
+  photos: Array<IPropertyPhoto>;
 }
