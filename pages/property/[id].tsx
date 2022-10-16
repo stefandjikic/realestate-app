@@ -96,15 +96,36 @@ const PropertyPage = ({
       <Container maxW="container.lg">
         <Grid
           gridTemplateColumns={{ base: "1fr", md: "2fr 1fr" }}
-          gap="16px"
+          gap="50px"
           mt="20"
         >
           <GridItem>
             <Text lineHeight="2" color="gray.600">
               {description}
             </Text>
+            <Box
+              borderBottom="1px solid #eee"
+              borderTop="1px solid #eee"
+              py="8"
+              mt="5"
+            >
+              <Heading fontSize="20px" mb='6' as="h3">
+                Property Features
+              </Heading>
+              <Flex alignItems='center' mt='3'>
+              <Flex alignItems='center' mr={{base: '40px', md: '140px'}}>
+                <Box mr='2'>Size: {millify(area)} sqft </Box>
+                 <BsGridFill />
+              </Flex>
+              <Flex alignItems='center'>
+                <Box mr='2'>Rooms: {rooms} </Box>
+                <FaBed />
+              </Flex>
+              </Flex>
+            </Box>
           </GridItem>
           <GridItem>
+            {/* TODO: Create component for this */}
             <Box
               height="350px"
               textAlign="center"
