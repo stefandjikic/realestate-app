@@ -58,6 +58,11 @@ interface IPropertyPhoneNumber {
   proxyMobile: string;
 }
 
+interface IPropertyGeography {
+  lat: number;
+  lng: number;
+}
+
 export interface IPropertyDetails {
   id: number;
   price: number;
@@ -76,4 +81,5 @@ export interface IPropertyDetails {
   furnishingStatus: null | unknown;
   amenities: Array<IPropertyAmenity>;
   photos: Array<IPropertyPhoto>;
+  geography: IPropertyGeography;
 }

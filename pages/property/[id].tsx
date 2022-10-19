@@ -49,6 +49,7 @@ const PropertyPage = ({
     price = 0,
     rentFrequency = 0,
     description = "",
+    purpose = "",
     agency: {
       logo: { url: agencyLogoUrl = "" } = {},
       name: agencyName = "",
@@ -100,27 +101,39 @@ const PropertyPage = ({
           mt="20"
         >
           <GridItem>
-            <Text lineHeight="2" color="gray.600">
-              {description}
-            </Text>
-            <Box
-              borderBottom="1px solid #eee"
-              borderTop="1px solid #eee"
-              py="8"
-              mt="5"
-            >
-              <Heading fontSize="20px" mb='6' as="h3">
+            <Box borderBottom="1px solid #eee" py="8">
+              <Text lineHeight="2" color="gray.600">
+                {description}
+              </Text>
+            </Box>
+            <Box borderBottom="1px solid #eee" py="8">
+              <Heading fontSize="20px" mb="6" as="h3">
                 Property Features
               </Heading>
-              <Flex alignItems='center' mt='3'>
-              <Flex alignItems='center' mr={{base: '40px', md: '140px'}}>
-                <Box mr='2'>Size: {millify(area)} sqft </Box>
-                 <BsGridFill />
+              <Flex alignItems="center" mt="3">
+                <Flex alignItems="center" mr={{ base: "40px", md: "60px" }}>
+                  <Box mr="2">Size: {millify(area)} sqft </Box>
+                  <BsGridFill />
+                </Flex>
+                <Flex alignItems="center" mr={{ base: "40px", md: "60px" }}>
+                  <Box mr="2">Rooms: {rooms} </Box>
+                  <FaBed />
+                </Flex>
+                <Flex alignItems="center">
+                  <Box mr="2">Baths: {baths} </Box>
+                  <FaBed />
+                </Flex>
               </Flex>
-              <Flex alignItems='center'>
-                <Box mr='2'>Rooms: {rooms} </Box>
-                <FaBed />
-              </Flex>
+            </Box>
+            <Box borderBottom="1px solid #eee" py="8">
+              <Heading fontSize="20px" mb="6" as="h3">
+                Property Purpose
+              </Heading>
+              <Flex color="gray.600">
+                <Text fontWeight="bold" mr='4'>
+                  {purpose?.replace("-", " ")?.toUpperCase()}
+                </Text>
+                <Text>{millify(price)}</Text>
               </Flex>
             </Box>
           </GridItem>
