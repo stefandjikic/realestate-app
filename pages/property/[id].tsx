@@ -56,6 +56,7 @@ const PropertyPage = ({
     } = {},
     contactName = "",
     phoneNumber: { mobile = "", phone = "" } = {},
+    furnishingStatus = null,
     // type = '',
   } = PROPERTY_DETAILS;
   return (
@@ -130,12 +131,22 @@ const PropertyPage = ({
                 Property Purpose
               </Heading>
               <Flex color="gray.600">
-                <Text fontWeight="bold" mr='4'>
+                <Text fontWeight="bold" mr="4">
                   {purpose?.replace("-", " ")?.toUpperCase()}
                 </Text>
                 <Text>{millify(price)}</Text>
               </Flex>
             </Box>
+            {furnishingStatus !== null && (
+              <Box borderBottom="1px solid #eee" py="8">
+                <Heading fontSize="20px" mb="6" as="h3">
+                  Furnishing Status
+                </Heading>
+                <Text color="gray.600" textTransform='uppercase' fontWeight="bold">
+                  {furnishingStatus !== null && furnishingStatus}
+                </Text>
+              </Box>
+            )}
           </GridItem>
           <GridItem>
             {/* TODO: Create component for this */}

@@ -78,7 +78,7 @@ export interface IPropertyDetails {
   description: string;
   type: string;
   purpose: string;
-  furnishingStatus: null | unknown;
+  furnishingStatus: null | string;
   amenities: Array<IPropertyAmenity>;
   photos: Array<IPropertyPhoto>;
   geography: IPropertyGeography;
