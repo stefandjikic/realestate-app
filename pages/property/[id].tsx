@@ -16,6 +16,7 @@ import millify from "millify";
 import { IPropertyDetails } from "../../interfaces/property_interface";
 import { PROPERTY_DETAILS } from "../../utils/constants";
 import ImageCarousel from "../../components/ImageCarousel";
+import MapEmbed from "../../components/MapEmbed";
 
 interface IProps {
   propertyDetails: IPropertyDetails;
@@ -57,6 +58,8 @@ const PropertyPage = ({
     contactName = "",
     phoneNumber: { mobile = "", phone = "" } = {},
     furnishingStatus = null,
+    amenities = [],
+    geography: { lat = 0, lng = 0} = {},
     // type = '',
   } = PROPERTY_DETAILS;
   return (
@@ -142,11 +145,43 @@ const PropertyPage = ({
                 <Heading fontSize="20px" mb="6" as="h3">
                   Furnishing Status
                 </Heading>
-                <Text color="gray.600" textTransform='uppercase' fontWeight="bold">
+                <Text
+                  color="gray.600"
+                  textTransform="uppercase"
+                  fontWeight="bold"
+                >
                   {furnishingStatus !== null && furnishingStatus}
                 </Text>
               </Box>
             )}
+            {amenities && amenities?.length > 0 && (
+              <Box borderBottom="1px solid #eee" py="8">
+                <Heading fontSize="20px" mb="6" as="h3">
+                  Amenities
+                </Heading>
+                <Flex flexWrap="wrap">
+                  {amenities?.map((amenityItem: any) =>
+                    amenityItem?.amenities.map((amenity: any) => (
+                      <Box
+                        key={amenity.text}
+                        bg="gray.100"
+                        m="1"
+                        p="1"
+                        borderRadius="4"
+                      >
+                        {amenity.text}
+                      </Box>
+                    ))
+                  )}
+                </Flex>
+              </Box>
+            )}
+            <Box py="8">
+              <Heading fontSize="20px" mb="6" as="h3">
+                Location
+              </Heading>
+              <MapEmbed lat={lat} lng={lng} />
+            </Box>
           </GridItem>
           <GridItem>
             {/* TODO: Create component for this */}
@@ -155,6 +190,8 @@ const PropertyPage = ({
               textAlign="center"
               borderRadius="md"
               boxShadow="md"
+              position={{lg: 'sticky'}}
+              top='10'
             >
               <Flex
                 justifyContent="center"
