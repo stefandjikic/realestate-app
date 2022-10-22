@@ -2,13 +2,13 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { Box, Flex } from "@chakra-ui/react";
 import CtaComponent from "../components/CtaComponent";
-import { PROPERTIES } from '../utils/constants';
+import { PROPERTIES } from "../utils/constants";
 import PropertyComponent from "../components/PropertyComponent";
 
 // accentColor = #FF6884
 // bg and gradient
 // background: rgb(52,52,117);
-// background: linear-gradient(30deg, rgba(52,52,117,1) 0%, rgba(90,113,183,1) 35%, rgba(140,201,242,1) 100%); 
+// background: linear-gradient(30deg, rgba(52,52,117,1) 0%, rgba(90,113,183,1) 35%, rgba(140,201,242,1) 100%);
 
 const Home: NextPage = () => {
   return (
@@ -39,8 +39,15 @@ const Home: NextPage = () => {
         buttonText="Explore Renting"
         link="/search?type=for-rent"
       />
-      <Flex flexWrap='wrap' my='60px'>
-      {PROPERTIES?.map((property) => <PropertyComponent key={property.id} property={property} />)}
+      <Flex
+        flexDirection={{ base: "column", md: "row" }}
+        justifyContent="space-between"
+        alignItems="center"
+        my="60px"
+      >
+        {PROPERTIES?.map((property) => (
+          <PropertyComponent key={property.id} property={property} />
+        ))}
       </Flex>
       <CtaComponent
         type="Buy a home"
@@ -50,6 +57,16 @@ const Home: NextPage = () => {
         buttonText="Explore Buying"
         link="/search?type=for-buy"
       />
+      <Flex
+        flexDirection={{ base: "column", md: "row" }}
+        justifyContent="space-between"
+        alignItems="center"
+        my="60px"
+      >
+        {PROPERTIES?.map((property) => (
+          <PropertyComponent key={property.id} property={property} />
+        ))}
+      </Flex>
     </Box>
   );
 };

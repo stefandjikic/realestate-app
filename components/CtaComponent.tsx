@@ -29,7 +29,7 @@ const CtaComponent = ({
       columnGap="8"
       gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
     >
-      <Box pos="relative" borderTopLeftRadius="md">
+      <Box pos="relative" borderTopLeftRadius="md" height={{base: '200px', md: 'auto'}}>
         <Image
           style={imageStyle}
           src={imgSrc}

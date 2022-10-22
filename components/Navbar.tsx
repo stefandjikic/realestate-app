@@ -26,7 +26,7 @@ const Navbar = () => {
           display={{ base: "none", md: "flex" }}
           justifyContent="space-between"
         >
-          <Box>
+          <Box color='#FF6884' fontWeight='bold' fontFamily='fantasy'>
             <Link href="/">UAE Real Estate</Link>
           </Box>
           <Flex>
