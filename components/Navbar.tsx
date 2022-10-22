@@ -2,16 +2,17 @@ import Link from "next/link";
 import {
   Flex,
   Box,
-  Menu,
-  MenuButton,
-  IconButton,
-  MenuList,
-  MenuItem,
+  // Menu,
+  // MenuButton,
+  // IconButton,
+  // MenuList,
+  // MenuItem,
   Container,
 } from "@chakra-ui/react";
 import { FcMenu } from "react-icons/fc";
 import { NAV_LINKS } from "../utils/links";
 import { CONTAINER_WIDTH } from "../utils/constants";
+import { FcGrid } from "react-icons/fc";
 
 const Navbar = () => {
   return (
@@ -26,7 +27,7 @@ const Navbar = () => {
           display={{ base: "none", md: "flex" }}
           justifyContent="space-between"
         >
-          <Box color='#FF6884' fontWeight='bold' fontFamily='fantasy'>
+          <Box color="#FF6884" fontWeight="bold" fontFamily="fantasy">
             <Link href="/">UAE Real Estate</Link>
           </Box>
           <Flex>
@@ -45,10 +46,10 @@ const Navbar = () => {
           borderBottom="1px"
           borderColor="gray.200"
         >
-          <Box py="6">
+          <Box color="#FF6884" fontWeight="bold" fontFamily="fantasy" py="6">
             <Link href="/">UAE Real Estate</Link>
           </Box>
-          <Menu>
+          {/* <Menu>
             <MenuButton
               as={IconButton}
               aria-label="Options"
@@ -62,7 +63,32 @@ const Navbar = () => {
                 </Link>
               ))}
             </MenuList>
-          </Menu>
+          </Menu> */}
+        </Flex>
+        <Flex
+          display={{ base: "flex", md: "none" }}
+          justifyContent="space-between"
+          width="100%"
+          bg="#fff"
+          p="4"
+          borderTop="1px solid #fcf3fe"
+          position="fixed"
+          zIndex="999"
+          bottom="0"
+          left="0"
+        >
+          <Link href="/" passHref>
+            <Box className="mobile-nav-link">
+              <FcGrid />
+            </Box>
+            {/* <MenuItem icon={navLink.icon}>{navLink.name}</MenuItem> */}
+          </Link>
+          {NAV_LINKS?.map((navLink) => (
+            <Link key={navLink.route} href={navLink.route} passHref>
+              <Box className="mobile-nav-link">{navLink.icon}</Box>
+              {/* <MenuItem icon={navLink.icon}>{navLink.name}</MenuItem> */}
+            </Link>
+          ))}
         </Flex>
       </Container>
     </Box>

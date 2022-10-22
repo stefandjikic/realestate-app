@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Image from 'next/image'
+import Image from "next/image";
 import {
   Box,
   Flex,
@@ -26,9 +26,13 @@ const SearchPage = () => {
 
   return (
     <Box>
-      <Accordion bg="gray.50" allowToggle>
-        <AccordionItem>
-          <AccordionButton display="flex" justifyContent="center">
+      <Accordion allowToggle>
+        <AccordionItem borderTop="0">
+          <AccordionButton
+            display="flex"
+            justifyContent="center"
+            _hover={{ bg: "#fcfcfc" }}
+          >
             <Box textAlign="center" fontWeight="bold">
               Filter Properties
             </Box>
@@ -43,12 +47,29 @@ const SearchPage = () => {
         Properties {parsedPropertyPurpose || ""}
       </Text>
       {PROPERTIES?.length === 0 && (
-          <Flex mt='20' justifyContent="center" alignContent="center" flexDirection='column'>
-            <Image width={200} height={120} alt="No Data" src='/img/no-data.svg' />
-            <Text fontSize='sm' textAlign='center' mt='5'>Currently, there are no properties with these criteria.</Text>
-          </Flex>
-        )}
-      <Flex flexWrap="wrap" my="20px">
+        <Flex
+          mt="20"
+          justifyContent="center"
+          alignContent="center"
+          flexDirection="column"
+        >
+          <Image
+            width={200}
+            height={120}
+            alt="No Data"
+            src="/img/no-data.svg"
+          />
+          <Text fontSize="sm" textAlign="center" mt="5">
+            Currently, there are no properties with these criteria.
+          </Text>
+        </Flex>
+      )}
+      <Flex
+        flexDirection={{ base: "column", md: "row" }}
+        justifyContent="space-between"
+        alignItems="center"
+        my="20px"
+      >
         {PROPERTIES?.map((property) => (
           <PropertyComponent key={property.id} property={property} />
         ))}

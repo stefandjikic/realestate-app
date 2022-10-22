@@ -28,3 +28,7 @@ a {
 .round-img {
   border-radius: 20px;
 }
+
+.mobile-nav-link svg {
+  font-size: 25px;
+}
