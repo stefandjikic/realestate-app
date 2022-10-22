@@ -27,6 +27,7 @@ interface IAgencyForProperty {
 }
 
 export interface IProperty {
+  id: number,
   externalID: string;
   coverPhoto: ICoverPhotoForProperty;
   price: number;

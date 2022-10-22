@@ -4,13 +4,20 @@ import { Box, Flex } from "@chakra-ui/react";
 import CtaComponent from "../components/CtaComponent";
 import { PROPERTIES } from "../utils/constants";
 import PropertyComponent from "../components/PropertyComponent";
+import { baseUrl, fetchAPI } from "../api/fetchApi";
+import { IProperty } from "../interfaces/property_interface";
 
 // accentColor = #FF6884
 // bg and gradient
 // background: rgb(52,52,117);
 // background: linear-gradient(30deg, rgba(52,52,117,1) 0%, rgba(90,113,183,1) 35%, rgba(140,201,242,1) 100%);
 
-const Home: NextPage = () => {
+interface IProps {
+  propertiesForSale: Array<IProperty>;
+  propertiesForRent: Array<IProperty>;
+}
+
+const Home: NextPage<IProps> = ({ propertiesForSale, propertiesForRent }) => {
   return (
     <Box>
       <Box
@@ -45,9 +52,11 @@ const Home: NextPage = () => {
         alignItems="center"
         my="60px"
       >
-        {PROPERTIES?.map((property) => (
-          <PropertyComponent key={property.id} property={property} />
-        ))}
+        {propertiesForRent &&
+          propertiesForRent?.length > 0 &&
+          propertiesForRent?.map((property: IProperty) => (
+            <PropertyComponent key={property.id} property={property} />
+          ))}
       </Flex>
       <CtaComponent
         type="Buy a home"
@@ -63,9 +72,11 @@ const Home: NextPage = () => {
         alignItems="center"
         my="60px"
       >
-        {PROPERTIES?.map((property) => (
-          <PropertyComponent key={property.id} property={property} />
-        ))}
+        {propertiesForSale &&
+          propertiesForSale?.length > 0 &&
+          propertiesForSale?.map((property) => (
+            <PropertyComponent key={property.id} property={property} />
+          ))}
       </Flex>
     </Box>
   );
@@ -73,15 +84,18 @@ const Home: NextPage = () => {
 
 export default Home;
 
-//TODO: connect with api
-// export async function getStaticProps() {
-//   const propertiesForSale = fetchAPI(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=3`);
-//   const propertiesForRent = fetchAPI(`${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=3`);
+export async function getStaticProps() {
+  const propertiesForSale = await fetchAPI(
+    `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=3`
+  );
+  const propertiesForRent = await fetchAPI(
+    `${baseUrl}/properties/list?locationExternalIDs=5002&purpose=for-rent&hitsPerPage=3`
+  );
 
-//   return {
-//     props: {
-//       propertiesForSale: propertiesForSale?.hits,
-//       propertiesForRent: propertiesForRent?.hits,
-//     }
-//   }
-// }
+  return {
+    props: {
+      propertiesForSale: propertiesForSale.hits || null,
+      propertiesForRent: propertiesForRent.hits || null,
+    },
+  };
+}
