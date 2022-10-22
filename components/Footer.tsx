@@ -12,7 +12,7 @@ const Footer = () => {
       textColor="gray.500"
     >
       <Container maxW={CONTAINER_WIDTH}>
-        <Text>Real Estate App &copy; {new Date().getFullYear()}</Text>
+        <Text>UAE Real Estate &copy; {new Date().getFullYear()}</Text>
       </Container>
     </Box>
   );

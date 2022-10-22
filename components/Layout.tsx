@@ -12,7 +12,7 @@ interface IProps {
 const Layout = ({ children }: IProps) => (
   <>
     <Head>
-      <title>Real Estate App</title>
+      <title>UEA Real Estate</title>
     </Head>
     <Box as="header">
       <Navbar />

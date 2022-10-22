@@ -27,7 +27,7 @@ const Navbar = () => {
           justifyContent="space-between"
         >
           <Box>
-            <Link href="/">Real Estate App</Link>
+            <Link href="/">UAE Real Estate</Link>
           </Box>
           <Flex>
             {NAV_LINKS?.map((navLink) => (
@@ -46,7 +46,7 @@ const Navbar = () => {
           borderColor="gray.200"
         >
           <Box py="6">
-            <Link href="/">Real Estate App</Link>
+            <Link href="/">UAE Real Estate</Link>
           </Box>
           <Menu>
             <MenuButton

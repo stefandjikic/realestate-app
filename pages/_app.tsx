@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Real Estate App</title>
+        <title>UAE Real Estate</title>
       </Head>
       <ChakraProvider theme={theme}>
         <Layout>
