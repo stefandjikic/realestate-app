@@ -17,6 +17,7 @@ import { IPropertyDetails } from "../../interfaces/property_interface";
 import { PROPERTY_DETAILS } from "../../utils/constants";
 import ImageCarousel from "../../components/ImageCarousel";
 import MapEmbed from "../../components/MapEmbed";
+import { baseUrl, fetchAPI } from "../../api/fetchApi";
 
 interface IProps {
   propertyDetails: IPropertyDetails;
@@ -24,44 +25,47 @@ interface IProps {
 
 const PropertyPage = ({
   propertyDetails: {
-    // id,
-    // title,
-    // purpose,
-    // price,
-    // type,
-    // rentFrequency,
-    // rooms,
-    // baths,
-    // area,
-    // agency,
-    // isVerified,
-    // description,
-    // furnishingStatus,
-    // amenities,
-    // photos,
-  } = {},
-}: IProps) => {
-  const {
     photos = [],
     title = "",
     rooms = 0,
     baths = 0,
     area = 0,
     price = 0,
-    rentFrequency = 0,
+    rentFrequency = "",
     description = "",
     purpose = "",
     agency: {
-      logo: { url: agencyLogoUrl = "" } = {},
+      logo: { url: agencyLogoUrl = "" },
       name: agencyName = "",
-    } = {},
+    },
     contactName = "",
-    phoneNumber: { mobile = "", phone = "" } = {},
+    phoneNumber: { mobile = "", phone = "" },
     furnishingStatus = null,
     amenities = [],
-    geography: { lat = 0, lng = 0} = {},
-    // type = '',
-  } = PROPERTY_DETAILS;
+    geography: { lat = 0, lng = 0 },
+  } = {} as IPropertyDetails,
+}: IProps) => {
+  // const {
+  //   photos = [],
+  //   title = "",
+  //   rooms = 0,
+  //   baths = 0,
+  //   area = 0,
+  //   price = 0,
+  //   rentFrequency = 0,
+  //   description = "",
+  //   purpose = "",
+  //   agency: {
+  //     logo: { url: agencyLogoUrl = "" } = {},
+  //     name: agencyName = "",
+  //   } = {},
+  //   contactName = "",
+  //   phoneNumber: { mobile = "", phone = "" } = {},
+  //   furnishingStatus = null,
+  //   amenities = [],
+  //   geography: { lat = 0, lng = 0} = {},
+  //   // type = '',
+  // } = PROPERTY_DETAILS;
   return (
     <Box>
       <Grid
@@ -190,8 +194,8 @@ const PropertyPage = ({
               textAlign="center"
               borderRadius="md"
               boxShadow="md"
-              position={{lg: 'sticky'}}
-              top='10'
+              position={{ lg: "sticky" }}
+              top="10"
             >
               <Flex
                 justifyContent="center"
@@ -236,3 +240,12 @@ const PropertyPage = ({
 };
 
 export default PropertyPage;
+
+export async function getServerSideProps({ params: { id = "" } }) {
+  const data = await fetchAPI(`${baseUrl}/properties/detail?externalID=${id}`);
+  return {
+    props: {
+      propertyDetails: data,
+    },
+  };
+}
