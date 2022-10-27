@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import { Box, Flex } from "@chakra-ui/react";
 import CtaComponent from "../components/CtaComponent";
-import { PROPERTIES } from "../utils/constants";
 import PropertyComponent from "../components/PropertyComponent";
 import { baseUrl, fetchAPI } from "../api/fetchApi";
 import { IProperty } from "../interfaces/property_interface";

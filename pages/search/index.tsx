@@ -14,7 +14,6 @@ import {
 } from "@chakra-ui/react";
 import { BsFilter } from "react-icons/bs";
 import FilterComponent from "../../components/FilterComponent";
-import { PROPERTIES } from "../../utils/constants";
 import PropertyComponent from "../../components/PropertyComponent";
 import { baseUrl, fetchAPI } from "../../api/fetchApi";
 import { IProperty } from "../../interfaces/property_interface";

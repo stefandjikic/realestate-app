@@ -10,11 +10,10 @@ import {
   Container,
 } from "@chakra-ui/react";
 import { FaBed, FaBath, FaPhone } from "react-icons/fa";
-import { GoVerified } from "react-icons/go";
 import { BsGridFill } from "react-icons/bs";
 import millify from "millify";
 import { IPropertyDetails } from "../../interfaces/property_interface";
-import { PROPERTY_DETAILS } from "../../utils/constants";
+// import { PROPERTY_DETAILS } from "../../utils/constants";
 import ImageCarousel from "../../components/ImageCarousel";
 import MapEmbed from "../../components/MapEmbed";
 import { baseUrl, fetchAPI } from "../../api/fetchApi";
@@ -45,27 +44,6 @@ const PropertyPage = ({
     geography: { lat = 0, lng = 0 },
   } = {} as IPropertyDetails,
 }: IProps) => {
-  // const {
-  //   photos = [],
-  //   title = "",
-  //   rooms = 0,
-  //   baths = 0,
-  //   area = 0,
-  //   price = 0,
-  //   rentFrequency = 0,
-  //   description = "",
-  //   purpose = "",
-  //   agency: {
-  //     logo: { url: agencyLogoUrl = "" } = {},
-  //     name: agencyName = "",
-  //   } = {},
-  //   contactName = "",
-  //   phoneNumber: { mobile = "", phone = "" } = {},
-  //   furnishingStatus = null,
-  //   amenities = [],
-  //   geography: { lat = 0, lng = 0} = {},
-  //   // type = '',
-  // } = PROPERTY_DETAILS;
   return (
     <Box>
       <Grid
