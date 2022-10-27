@@ -1,4 +1,6 @@
+import { useMemo } from "react";
 import { useRouter } from "next/router";
+import { GetServerSideProps } from "next";
 import Image from "next/image";
 import {
   Box,
@@ -12,11 +14,17 @@ import {
 } from "@chakra-ui/react";
 import { BsFilter } from "react-icons/bs";
 import FilterComponent from "../../components/FilterComponent";
-import { useMemo } from "react";
 import { PROPERTIES } from "../../utils/constants";
 import PropertyComponent from "../../components/PropertyComponent";
+import { baseUrl, fetchAPI } from "../../api/fetchApi";
+import { IProperty } from "../../interfaces/property_interface";
 
-const SearchPage = () => {
+interface IProps {
+  properties: IProperty[];
+}
+
+const SearchPage = ({ properties = [] }: IProps) => {
+  console.log(properties, "properties");
   const router = useRouter();
 
   const parsedPropertyPurpose = useMemo(
@@ -46,7 +54,7 @@ const SearchPage = () => {
       <Text as="h2" mt="3" fontSize="3xl">
         Properties {parsedPropertyPurpose || ""}
       </Text>
-      {PROPERTIES?.length === 0 && (
+      {properties?.length === 0 && (
         <Flex
           mt="20"
           justifyContent="center"
@@ -65,12 +73,13 @@ const SearchPage = () => {
         </Flex>
       )}
       <Flex
+        flexWrap='wrap'
         flexDirection={{ base: "column", md: "row" }}
         justifyContent="space-between"
         alignItems="center"
         my="20px"
       >
-        {PROPERTIES?.map((property) => (
+        {properties?.map((property) => (
           <PropertyComponent key={property.id} property={property} />
         ))}
       </Flex>
@@ -80,15 +89,25 @@ const SearchPage = () => {
 
 export default SearchPage;
 
-//TODO: connect with api
-// export async function getServerSideProps() {
-//   //TODO: add filters from URL query and append them in fetch request
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const purpose = query.purpose || "for-rent";
+  const rentFrequency = query.rentFrequency || "yearly";
+  const minPrice = query.minPrice || "0";
+  const maxPrice = query.maxPrice || "1000000";
+  const roomsMin = query.roomsMin || "0";
+  const bathsMin = query.bathsMin || "0";
+  const sort = query.sort || "price-desc";
+  const areaMax = query.areaMax || "35000";
+  const locationExternalIDs = query.locationExternalIDs || "5002";
+  const categoryExternalID = query.categoryExternalID || "4";
 
-//   const properties = fetchAPI(`${baseUrl}/properties/list?locationExternalIDs=5002&hitsPerPage=10`);
+  const data = await fetchAPI(
+    `${baseUrl}/properties/list?locationExternalIDs=${locationExternalIDs}&purpose=${purpose}&categoryExternalID=${categoryExternalID}&bathsMin=${bathsMin}&rentFrequency=${rentFrequency}&priceMin=${minPrice}&priceMax=${maxPrice}&roomsMin=${roomsMin}&sort=${sort}&areaMax=${areaMax}&hitsPerPage=15`
+  );
 
-//   return {
-//     props: {
-//       propertiesForSale: properties?.hits,
-//     }
-//   }
-// }
+  return {
+    props: {
+      properties: data?.hits,
+    },
+  };
+};
