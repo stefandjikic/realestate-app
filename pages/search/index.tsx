@@ -23,7 +23,6 @@ interface IProps {
 }
 
 const SearchPage = ({ properties = [] }: IProps) => {
-  console.log(properties, "properties");
   const router = useRouter();
 
   const parsedPropertyPurpose = useMemo(

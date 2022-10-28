@@ -1,15 +1,5 @@
 import Link from "next/link";
-import {
-  Flex,
-  Box,
-  // Menu,
-  // MenuButton,
-  // IconButton,
-  // MenuList,
-  // MenuItem,
-  Container,
-} from "@chakra-ui/react";
-import { FcMenu } from "react-icons/fc";
+import { Flex, Box, Container, Link as ChakraLink } from "@chakra-ui/react";
 import { NAV_LINKS } from "../utils/links";
 import { CONTAINER_WIDTH } from "../utils/constants";
 import { FcGrid } from "react-icons/fc";
@@ -32,8 +22,18 @@ const Navbar = () => {
           </Box>
           <Flex>
             {NAV_LINKS?.map((navLink) => (
-              <Box key={navLink.route} ml="4">
-                <Link href={navLink.route}>{navLink.name}</Link>
+              <Box key={navLink.route} fontWeight='bold' color='gray.600' ml="4">
+                {navLink.external ? (
+                  <ChakraLink
+                    _hover={{ textDecoration: "none" }}
+                    href={navLink.route}
+                    isExternal
+                  >
+                    {navLink.name}
+                  </ChakraLink>
+                ) : (
+                  <Link href={navLink.route}>{navLink.name}</Link>
+                )}
               </Box>
             ))}
           </Flex>
@@ -49,21 +49,6 @@ const Navbar = () => {
           <Box color="#FF6884" fontWeight="bold" fontFamily="fantasy" py="6">
             <Link href="/">UAE Real Estate</Link>
           </Box>
-          {/* <Menu>
-            <MenuButton
-              as={IconButton}
-              aria-label="Options"
-              icon={<FcMenu />}
-              variant="outline"
-            />
-            <MenuList>
-              {NAV_LINKS?.map((navLink) => (
-                <Link key={navLink.route} href={navLink.route} passHref>
-                  <MenuItem icon={navLink.icon}>{navLink.name}</MenuItem>
-                </Link>
-              ))}
-            </MenuList>
-          </Menu> */}
         </Flex>
         <Flex
           display={{ base: "flex", md: "none" }}
@@ -81,13 +66,23 @@ const Navbar = () => {
             <Box className="mobile-nav-link">
               <FcGrid />
             </Box>
-            {/* <MenuItem icon={navLink.icon}>{navLink.name}</MenuItem> */}
           </Link>
           {NAV_LINKS?.map((navLink) => (
-            <Link key={navLink.route} href={navLink.route} passHref>
-              <Box className="mobile-nav-link">{navLink.icon}</Box>
-              {/* <MenuItem icon={navLink.icon}>{navLink.name}</MenuItem> */}
-            </Link>
+            <Box key={navLink.route}>
+              {navLink.external ? (
+                <ChakraLink
+                  _hover={{ textDecoration: "none" }}
+                  href={navLink.route}
+                  isExternal
+                >
+                  <Box className="mobile-nav-link">{navLink.icon}</Box>
+                </ChakraLink>
+              ) : (
+                <Link href={navLink.route} passHref>
+                  <Box className="mobile-nav-link">{navLink.icon}</Box>
+                </Link>
+              )}
+            </Box>
           ))}
         </Flex>
       </Container>

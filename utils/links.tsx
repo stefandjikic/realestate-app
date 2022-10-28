@@ -17,8 +17,9 @@ export const NAV_LINKS = [
     icon: <FcKey />,
   },
   {
-    name: "Tips",
-    route: "/tips",
+    name: "About",
+    route: "https://github.com/stefandjikic/realestate-app",
+    external: true,
     icon: <FcAbout />,
   },
 ];

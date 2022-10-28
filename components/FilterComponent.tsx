@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import Router from "next/router";
 import { useRouter } from "next/router";
 import { Flex, Box, Select, Button } from "@chakra-ui/react";
 import { FILTER_VALUES } from "../utils/constants";
@@ -28,6 +27,7 @@ const FilterComponent = () => {
     const { pathname } = router;
     router.push({ pathname });
     setActiveFilters(false)
+    document.querySelectorAll('.filter-select').forEach((fs: any) => fs.value = '')
   };
   return (
     <Flex direction="column" alignItems="center">
@@ -35,6 +35,7 @@ const FilterComponent = () => {
         {filterValues?.map((filter) => (
           <Box key={filter.queryName}>
             <Select
+              className="filter-select"
               bg="white"
               width="fit-content"
               p="1"
@@ -54,7 +55,7 @@ const FilterComponent = () => {
         ))}
       </Flex>
       {activeFilters && Object.keys(router.query).length !== 0 && (
-        <Button onClick={clearFilters} mt="5">
+        <Button type='reset' size='sm' onClick={clearFilters} mt="5">
           Clear Filters
         </Button>
       )}
